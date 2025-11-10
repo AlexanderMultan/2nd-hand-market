@@ -1,0 +1,18 @@
+.header {
+    background: var(--color-red);
+    color: #ffffff;
+    padding: 25px var(--padding-x);
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo__title {
+    font-family: var(--third-family);
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 0.93;
+}

@@ -1,0 +1,20 @@
+:root {
+    --font-family: "SF UI Display", sans-serif;
+    --second-family: "SF Compact Display", sans-serif;
+    --third-family: "SF Compact Rounded", sans-serif;
+
+    --color-red:  #e55a63;
+    --color-light: #ffff;
+    --color-dark: #333;
+    --color-gray: #5c5d67;
+    --color-gray-alt: #e2e2e4;
+
+
+    --container-width: calc(1440px - var(--padding-x));
+    --padding-x: 48px;
+    --padding-y: 48px;
+
+    --input-height: 40px;
+
+    --border-radius: 20px;
+}
