@@ -1,0 +1,29 @@
+.field {
+    position: relative;
+}
+
+.field__input {
+    border-radius: var(--border-radius);
+    height: 32px;
+    width: 240px;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 16px;
+
+    &:hover,
+    &:focus {
+        background: var(--color-light);
+    }
+
+    &[type="search"] {
+        &:placeholder-shown {
+            padding-left: 12px;
+            background-image: url('../../assets/icons/search.svg');
+            background-position: 5%;
+            background-size: 16px;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
