@@ -2,9 +2,17 @@
     background: var(--color-red);
     color: #ffffff;
     padding: 25px var(--padding-x);
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
 }
 
 .header__logo {
+    display: flex;
+    gap: 31px;
+}
+
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -15,4 +23,50 @@
     font-weight: 900;
     font-size: 14px;
     line-height: 0.93;
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav__list {
+    display: flex;
+    gap: 16px;
+}
+
+.nav__list-link {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav__list-link:hover {
+    color: var(--color-gray);
+    border-color: var(--color-gray);
+}
+
+.nav__user {
+    display: flex;
+    gap: 16px;
+    text-align: center;
+    color: var(--color-light);
+}
+
+.nav__user-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__user-button {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    border: none;
+    background: none;
+    outline: none;
+    gap: 6px;
+}
+
+.nav__user-action:first-child .nav__user-button  {
+
 }
