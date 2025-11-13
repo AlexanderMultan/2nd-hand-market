@@ -7,3 +7,8 @@
 @import './components/header.css';
 @import 'components/category.css';
 @import './components/field.css';
+@import './components/accessories.css';
+@import './components/accardion.css';
+@import './components/customselect.css';
+@import './components/card.css';
+@import './components/filter.css';

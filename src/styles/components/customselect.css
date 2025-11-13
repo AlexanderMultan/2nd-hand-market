@@ -1,0 +1,16 @@
+.selects {
+    display: flex;
+    padding: 16px 0;
+    gap: 9px;
+}
+
+.selects__select {
+    min-width: 140px;
+    height: var(--input-height);
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+.selects__select option:not(:disabled) {
+    color: #333;
+}

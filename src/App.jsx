@@ -1,11 +1,13 @@
 import {Header} from "@/Header";
-import Category from "@/Category";
+import CategoryTabs from "@/CategoryTabs";
+import Accessories from "@/Accessories";
 
 const App = () => {
     return (
         <div>
             <Header />
-            <Category />
+            <CategoryTabs />
+            <Accessories />
         </div>
     );
 };

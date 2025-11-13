@@ -1,5 +1,3 @@
-
-import React from 'react';
 import logo from '../assets/icons/logo.svg';
 import Field from "@/Field";
 
@@ -23,7 +21,7 @@ export const Header = () => {
                 />
             </div>
 
-            <nav className="nav">h
+            <nav className="nav">
                 <ul className="nav__list">
                     <li className="nav__list-item">
                         <a className="nav__list-link" href="/">About us</a>

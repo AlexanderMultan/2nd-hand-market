@@ -1,0 +1,26 @@
+.filters {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 32px;
+}
+
+.filters__item {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-gray-alt);
+    border-radius: var(--border-radius);
+    gap: 6px;
+    padding: 9px 12px;
+}
+
+.filters__item span {
+    opacity: 0.7;
+}
+
+.filters__button--delete {
+    border: none;
+    background-color: transparent;
+    opacity: 0.7;
+    height: 20px;
+    width: 20px;
+}

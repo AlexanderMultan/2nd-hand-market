@@ -1,5 +1,5 @@
 
-const Category = () => {
+const CategoryTabs = () => {
     return (
         <div className='category'>
             <ul className="category__list">
@@ -23,4 +23,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default CategoryTabs;
