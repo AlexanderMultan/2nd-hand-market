@@ -1,0 +1,58 @@
+.header--admin {
+        background: var(--color-gray);
+        color: #ffffff;
+        padding: 25px var(--padding-x);
+        display: flex;
+        align-items: center;
+        gap: 44px;
+}
+
+.header--admin__logo {
+        display: flex;
+        gap: 12px;
+}
+
+.logo--admin__title {
+        font-family: var(--third-family);
+        font-weight: 900;
+        font-size: 14px;
+        line-height: 0.93;
+        padding-bottom: 7px;
+}
+
+.logo--admin__subtitle {
+        font-family: var(--third-family);
+        font-weight: 100;
+        font-size: 10px;
+        color: var(--color-gray-alt);
+}
+
+.profile__link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 4px;
+}
+
+.profile__link:hover {
+        color: var(--color-gray-alt);
+        border-color: var(--color-gray-alt);
+}
+
+.profile__avatar {
+        position: relative;
+        border:none;
+        background-color: transparent;
+        color: #fff;
+}
+
+.profile__avatar::after {
+        content: url("./../../assets/icons/white-arrow-down.svg");
+        position: absolute;
+        left: 100%;
+        top: 0;
+}
+
+.nav__profile {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+}

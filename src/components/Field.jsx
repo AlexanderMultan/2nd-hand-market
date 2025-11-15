@@ -10,7 +10,7 @@ const {
 } = props;
     return (
         <div className={`field ${className}`}>
-            <label className="field__label" htmlFor={id} />
+            <label className="field__label visually-hidden" htmlFor={id} />
             <input
                 className ="field__input"
                 id ={id}

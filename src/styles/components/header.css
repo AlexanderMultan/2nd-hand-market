@@ -40,8 +40,8 @@
 }
 
 .nav__list-link:hover {
-    color: var(--color-gray);
-    border-color: var(--color-gray);
+    color: var(--color-gray-alt);
+    border-color: var(--color-gray-alt);
 }
 
 .nav__user {
@@ -65,8 +65,5 @@
     background: none;
     outline: none;
     gap: 6px;
-}
-
-.nav__user-action:first-child .nav__user-button  {
-
+    color: #ffffff;
 }
