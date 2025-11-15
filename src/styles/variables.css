@@ -4,11 +4,14 @@
     --third-family: "SF Compact Rounded", sans-serif;
 
     --color-red:  #e55a63;
+    --color-red-alt: #ff2d55;
     --color-light: #ffff;
     --color-dark: #333;
     --color-gray: #5c5d67;
     --color-gray-alt: #e2e2e4;
     --color-cyan: #00A6FB;
+
+    --transition-duration: 0.2s;
 
 
     --container-width: calc(1440px - var(--padding-x));
