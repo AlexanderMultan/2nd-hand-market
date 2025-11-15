@@ -8,6 +8,7 @@
     --color-dark: #333;
     --color-gray: #5c5d67;
     --color-gray-alt: #e2e2e4;
+    --color-cyan: #00A6FB;
 
 
     --container-width: calc(1440px - var(--padding-x));

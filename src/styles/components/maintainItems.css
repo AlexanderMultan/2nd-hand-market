@@ -1,0 +1,27 @@
+.maintain-items {
+    margin: 48px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    padding-inline: 24px;
+}
+
+.maintain-items__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.maintain-items__actions {
+    display: flex;
+    gap: 24px;
+}
+
+.maintain-items__search {
+    background-color: var(--color-gray-alt);
+}
+
+.maintain-items_btn {
+    background-color: var(--color-cyan);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    padding: 9px 16px;
+}
