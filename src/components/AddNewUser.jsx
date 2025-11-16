@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import {Breadcrumbs, Link} from "@mui/material";
 
 const AddNewUser = () => {
 
     const [formData, setFormData] = useState({
+        client: '',
         archived: 'no',
         active: 'yes',
         salutation: '',
@@ -37,13 +39,25 @@ const AddNewUser = () => {
     };
 
     return (
-        <>
+        <div style={{
+            position: 'relative',
+        }}>
         <form className="user-form" onSubmit={handleSubmit}>
             <h1 className="user-form__title">Add New User</h1>
 
-            {/* Client Section */}
             <section className="form-section">
-                <h2 className="form-section__title">Client *</h2>
+                <div className="field-group">
+                    <label className="field-group__label">Client *</label>
+                    <input
+                        type="text"
+                        className="input"
+                        name="client"
+                        value={formData.client}
+                        onChange={handleChange}
+                        placeholder="_ _ _ _ - _ _ _ _ - _ _ _ _ - _ _ _ _"
+                        required
+                    />
+                </div>
 
                 <div className="field-group">
                     <label className="field-group__label">Archived</label>
@@ -106,7 +120,7 @@ const AddNewUser = () => {
                         onChange={handleChange}
                         required
                     >
-                        <option value="">Salutation</option>
+                        <option value="" disabled>Salutation</option>
                         <option value="mr">Mr.</option>
                         <option value="ms">Ms.</option>
                         <option value="dr">Dr.</option>
@@ -154,7 +168,6 @@ const AddNewUser = () => {
 
             <hr className="form-divider" />
 
-            {/* Address Section */}
             <section className="form-section">
                 <div className="field-group">
                     <label className="field-group__label">Mobile number</label>
@@ -230,17 +243,18 @@ const AddNewUser = () => {
                         onChange={handleChange}
                         required
                     >
-                        <option value="">Country</option>
+                        <option value="" style = {{
+
+                        }} disabled>Country</option>
                         <option value="us">United States</option>
-                        <option value="de">Germany</option>
-                        <option value="fr">France</option>
+                        <option value="by">Belarus</option>
+                        <option value="fr">Germany</option>
                     </select>
                 </div>
             </section>
 
             <hr className="form-divider" />
 
-            {/* Additional Info */}
             <section className="form-section">
                 <div className="field-group">
                     <label className="field-group__label">Paypal account</label>
@@ -329,7 +343,7 @@ const AddNewUser = () => {
                         value={formData.yearOfBirth}
                         onChange={handleChange}
                     >
-                        <option value="">Year of birth</option>
+                        <option value="" disabled>Year of birth</option>
                         {Array.from({ length: 100 }, (_, i) => {
                             const year = new Date().getFullYear() - i;
                             return (
@@ -349,7 +363,7 @@ const AddNewUser = () => {
                 </button>
             </div>
         </form>
-        </>
+        </div>
     );
 };
 
