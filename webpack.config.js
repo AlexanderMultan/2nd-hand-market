@@ -4,14 +4,16 @@ const webpack = require("webpack");
 
 module.exports = (env) => {
     const isDev = env.mode === "development";
+    const isProduction = env.mode === "production";
 
     return {
         mode: env.mode ?? "development",
         entry: path.resolve(__dirname, 'src', 'index.jsx'),
         output: {
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve(__dirname, 'build'), // Изменил build на dist
             filename: '[name].[hash].js',
             clean: true,
+            publicPath: isProduction ? '/2nd-hand-market/' : '/',
         },
         module: {
             rules: [
@@ -51,7 +53,14 @@ module.exports = (env) => {
             ],
         },
         plugins: [
-            new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html') }),
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, 'public/index.html'),
+                ...(isProduction && {
+                    templateParameters: {
+                        baseHref: '/2nd-hand-market/'
+                    }
+                })
+            }),
             new webpack.ProgressPlugin()
         ],
         devtool: isDev ? "inline-source-map" : false,
