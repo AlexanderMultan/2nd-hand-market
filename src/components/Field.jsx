@@ -1,23 +1,30 @@
+import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {searchProducts} from "../store/slices/cardSlice";
 
 const Field = (props) => {
 const {
     className,
-    id,
-    placeholder,
-    type = 'text',
-    value,
-    onInput,
 } = props;
+
+    const [searchValue, setSearchValue] = useState('');
+
+    const dispatch = useDispatch();
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchValue(value);
+        dispatch(searchProducts(value));
+    };
+
     return (
         <div className={`field ${className}`}>
-            <label className="field__label visually-hidden" htmlFor={id} />
             <input
-                className ="field__input"
-                id ={id}
-                type={type}
-                placeholder={placeholder}
-                value={value}
-                onInput={onInput}
+                className="field__input"
+                type="text"
+                placeholder=""
+                value={searchValue}
+                onChange={handleSearchChange}
             />
         </div>
     );

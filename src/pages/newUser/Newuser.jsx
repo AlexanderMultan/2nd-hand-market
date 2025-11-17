@@ -1,7 +1,11 @@
 import HeaderBackOffice from "@/HeaderBackOffice";
+import AddNewUser from "@/AddNewUser";
 
 export const Newuser = () => {
     return (
-        <HeaderBackOffice/>
+        <div style={{ backgroundColor: "var(--color-gray-alt)" }}>
+            <HeaderBackOffice />
+            <AddNewUser />
+        </div>
     );
 };
