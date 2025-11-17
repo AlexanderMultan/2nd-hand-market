@@ -6,7 +6,7 @@ export const Header = () => {
         <header className="header">
             <div className="header__logo">
                 <div className="logo">
-                    <img classname="logo__image" src={ logo } alt="Logo" />
+                    <img className="logo__image" src={ logo } alt="Logo" />
                     <p className="logo__title">
                         2ND <br />
                         HAND <br />
@@ -15,9 +15,6 @@ export const Header = () => {
                 </div>
                 <Field
                     className = "header__search"
-                    placeholder=""
-                    id="search-item"
-                    type="search"
                 />
             </div>
 

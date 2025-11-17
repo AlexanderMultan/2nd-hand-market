@@ -1,28 +1,36 @@
-import {useState} from "react";
-import {Breadcrumbs, Link} from "@mui/material";
+import { Breadcrumbs, Link } from "@mui/material";
 import CustomSelect from "@/CustomSelect";
 import Aside from "@/Aside";
 import Card from "@/Card";
 import FilterList from "@/FilterList";
-
-
-import redJacket from '../assets/images/red-jacket.jpg'
-import darkJacket from '../assets/images/dark-jacket.jpg'
-import brownJacket from '../assets/images/brown-jacket.jpg'
-import beigeJacket from '../assets/images/beige-jacket.jpg'
-import smock from "../assets/images/smock.jpg"
-import darkDenimJacket from '../assets/images/dark-denim-jacket.jpg'
-import blackJacket from '../assets/images/black-jacket.jpg'
-import lightDenimJacket from '../assets/images/light-denim-jacket.jpg'
-
+import { useSelector } from 'react-redux';
+import { useGetAllProductsQuery, useSearchProductsQuery } from '../store/api/productsApi';
 
 const Accessories = () => {
-    const [color, setColor] = useState('');
-    const [size, setSize] = useState('');
-    const [brand, setBrand] = useState('');
-    const [price, setPrice] = useState('');
-    const [condition, setCondition] = useState('');
-    const [shop, setShop] = useState('');
+    const filteredProducts = useSelector(state => state.cards.filteredItems);
+    const searchQuery = useSelector(state => state.cards.searchQuery);
+
+    const {
+        data: apiProducts,
+        isLoading: isLoadingProducts,
+        error: productsError
+    } = useGetAllProductsQuery();
+
+    const {
+        data: searchResults,
+        isLoading: isLoadingSearch,
+        isFetching: isFetchingSearch
+    } = useSearchProductsQuery(searchQuery, {
+        skip: !searchQuery,
+    });
+
+    const displayProducts = searchQuery
+        ? (searchResults?.products || [])
+        : (apiProducts?.products || filteredProducts); //DummyJSON товары
+
+    // const displayProducts = filteredProducts; //Мои товары
+
+    const isLoading = isLoadingProducts || isLoadingSearch || isFetchingSearch;
 
     return (
         <section className="accessories">
@@ -59,66 +67,67 @@ const Accessories = () => {
                         </Link>
                     </Breadcrumbs>
 
+                    {searchQuery && (
+                        <div style={{ marginBottom: '15px', fontStyle: 'italic', color: '#666' }}>
+                            {isLoadingSearch || isFetchingSearch ? (
+                                'Searching...'
+                            ) : (
+                                `Found ${displayProducts.length} products for "${searchQuery}"`
+                            )}
+                        </div>
+                    )}
+
                     <div className="accessories__filters">
                         <CustomSelect />
                     </div>
                     <FilterList />
-                    <div className="accessories__sort" >
+                    <div className="accessories__sort">
                         <span>Sort by:</span>
                         &nbsp;
                         <span className="unpicked">Ascending price</span>
                         &nbsp;
                         <span className="picked">Descending Price</span>
                     </div>
+
                     <div className="cards">
-                        <Card
-                            src= {redJacket}
-                            alt= 'Red Jacket'
-                            value = 'Autumn / Spring jacket - Esprit - XS'
-                            price = '42,90'
-                        />
-                        <Card
-                            src= {darkJacket}
-                            alt= 'Dark Jacket'
-                            value = 'Autumn / Spring jacket - Other Brand - S'
-                            price = '32,90'
-                        />
-                        <Card
-                            src= {brownJacket}
-                            alt= 'Brown Jacket'
-                            value = 'Faux leather jacket - Zizzi - 44'
-                            price = '37,90'
-                        />
-                        <Card
-                            src= {beigeJacket}
-                            alt= 'Beige Jacket'
-                            value = 'Outdoor jacket - Torstai - 46'
-                            price = '22,90'
-                        />
-                        <Card
-                            src= {smock}
-                            alt= 'Smock'
-                            value = 'Smock - Other Brand - XL'
-                            price = '7,90'
-                        />
-                        <Card
-                            src= {darkDenimJacket}
-                            alt= 'Dark Denim Jacket'
-                            value = 'Denim jacket - Mexx - 34'
-                            price = '17,90'
-                        />
-                        <Card
-                            src= {blackJacket}
-                            alt= 'Black Jacket'
-                            value = 'Autumn / Spring jacket - Only - 38'
-                            price = '14,90'
-                        />
-                        <Card
-                            src= {lightDenimJacket}
-                            alt= 'Light Denim Jacket'
-                            value = 'Denim jacket - Vero Moda - 36'
-                            price = '29,90'
-                        />
+                        {isLoading ? (
+                            <div style={{
+                                textAlign: 'center',
+                                padding: '40px',
+                                color: '#666',
+                                fontSize: '18px'
+                            }}>
+                                Loading products...
+                            </div>
+                        ) : productsError ? (
+                            <div style={{
+                                textAlign: 'center',
+                                padding: '40px',
+                                color: 'red',
+                                fontSize: '18px'
+                            }}>
+                                Error loading products
+                            </div>
+                        ) : displayProducts.length > 0 ? (
+                            displayProducts.map(product => (
+                                <Card
+                                    key={product.id}
+                                    src={product.thumbnail || product.src}
+                                    alt={product.title || product.alt}
+                                    value={product.title || product.value}
+                                    price={product.price}
+                                />
+                            ))
+                        ) : (
+                            <div style={{
+                                textAlign: 'center',
+                                padding: '40px',
+                                color: '#999',
+                                fontSize: '18px'
+                            }}>
+                                {searchQuery ? 'No products found' : 'No products available'}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
