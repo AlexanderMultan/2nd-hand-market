@@ -1,0 +1,28 @@
+.accessories {
+    padding: 48px 0;
+    background: #f5f5f7;
+}
+
+.accessories .container {
+    display: flex;
+}
+
+.accessories__filters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.accessories__sort span:first-child {
+    opacity: 0.5;
+
+}
+
+.picked, .unpicked {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.unpicked {
+    color: var(--color-red);
+}
+

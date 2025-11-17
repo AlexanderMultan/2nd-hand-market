@@ -1,0 +1,17 @@
+@import './normalize.css';
+@import './fonts.css';
+@import './variables.css';
+@import './utils.css';
+@import './globals.css';
+
+@import './components/header.css';
+@import './components/headerAdmin.css';
+@import 'components/category.css';
+@import './components/field.css';
+@import './components/accessories.css';
+@import './components/accardion.css';
+@import './components/customselect.css';
+@import './components/card.css';
+@import './components/filter.css';
+@import './components/maintainItems.css';
+@import './components/addNewUser.css';
