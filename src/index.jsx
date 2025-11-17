@@ -1,6 +1,6 @@
 import {createRoot} from "react-dom/client";
 import App  from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom"; // Изменили на createHashRouter
 import {Newuser} from "./pages/newUser/Newuser";
 import {Backoffice} from "./pages/backOffice/Backoffice";
 import { Provider } from 'react-redux';
@@ -13,7 +13,7 @@ if (!rootElement) {
     throw new Error('Root element not found');
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <App />,

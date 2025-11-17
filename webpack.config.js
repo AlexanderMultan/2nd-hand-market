@@ -28,7 +28,7 @@ module.exports = (env) => {
                             presets: [
                                 '@babel/preset-env',
                                 ['@babel/preset-react', {
-                                    runtime: 'automatic' // ✅ ДОБАВЬТЕ ЭТУ НАСТРОЙКУ
+                                    runtime: 'automatic'
                                 }]
                             ]
                         }
@@ -38,7 +38,7 @@ module.exports = (env) => {
                     test: /\.(woff|woff2|eot|ttf|otf)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'assets/fonts/[name][ext]' // Оригинальные имена
+                        filename: 'assets/fonts/[name][ext]'
                     }
                 },
                 {
